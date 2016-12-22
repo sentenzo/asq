@@ -12,31 +12,31 @@ The example of a typical secuantional quary:
 
 As I suppose, it is possible to formalize such chains as a syntax tree:
 
-    .someTable
-    .where
-      (&&)
-        ├──(==)
-        │    ├──(.)
-        │    │   ├──(x)
-        │    │   └──(id)
-        │    └──(false)
-        └──(!=)
-             ├──(.)
-             │   ├──(x)
-             │   └──(id)
-             └──(null)
-     .select
-       ([])
-         ├──(.)
-         │   ├──(x)
-         │   └──(id)
-         └──(.)
-             ├──(x)
-             └──(name)
-      .distinct
-      .limit
-        (1000)
-      .do
+    ╔═someTable
+    ╠═where
+    ║ (&&)
+    ║   ├──(==)
+    ║   │    ├──(.)
+    ║   │    │   ├──(x)
+    ║   │    │   └──(id)
+    ║   │    └──(false)
+    ║   └──(!=)
+    ║        ├──(.)
+    ║        │   ├──(x)
+    ║        │   └──(id)
+    ║        └──(null)
+    ╠═select
+    ║  ([])
+    ║    ├──(.)
+    ║    │   ├──(x)
+    ║    │   └──(id)
+    ║    └──(.)
+    ║        ├──(x)
+    ║        └──(name)
+    ╠═distinct
+    ╠═limit
+    ║   (1000)
+    ╚═do
       
 My dream is to generate SQL-queries based on this tree structures. Well, someday maybe...
 Any way, now this project is far from perfection.
