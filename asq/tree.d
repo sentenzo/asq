@@ -6,13 +6,22 @@ class Tree {
     string lexema;
     Tree[] branches;
     
-// [TODO] 
-//  this(string lexema, args...); 
-//  this(string lexema, Tree, Tree); 
-//  this(string lexema, Tree, to!string(T));
-    this(string lexema) {
-        this.lexema = lexema;
-        branches = [];
+    this(T ...)(T args)
+    in {
+        assert(args.length > 0);
+        assert(is(typeof(args[0]) == string));
+    } body {
+        this.lexema = args[0];
+        foreach (arg; args[1..$]) {
+            r_addBranch(arg);
+        }
+    }
+    
+    private void r_addBranch(string br) {
+        this.branches ~= new Tree(br);
+    }
+    private void r_addBranch(Tree br) {
+        this.branches ~= br;
     }
     
     override string toString() const {

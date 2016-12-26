@@ -16,9 +16,8 @@ void main() {
         import asq.spy;
         Spy a = new Spy();
         Spy b = new Spy();
-        Spy s = -(1 - (a.length + 1)) * b / 1;
-        writeln(s.tree); 
-        
+        Spy s = -(1 - (a.length + 1)) * cast(int)b / 1;
+        writeln(s.tree);
     }
 }
 
